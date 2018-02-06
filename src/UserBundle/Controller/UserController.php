@@ -12,35 +12,34 @@ class UserController extends Controller
 
 
 
-
     public function layoutUserAction()
     {
-        return $this->render('UserBundle::layoutUser.html.twig');
+        return $this->render('@User/layoutUser.html.twig');
     }
 
 
     public function homeUserAction()
 {
-    return $this->render('UserBundle:Default/Principale:HomeUser.html.twig');
+    return $this->render('UserBundle:Principale:HomeUser.html.twig');
 }
 
 
 
     public function form_loginAction()
     {
-        return $this->render('UserBundle:Default/login:login.html.twig');
+        return $this->render('UserBundle:login:login.html.twig');
     }
 
 
     public function layoutAdminAction()
     {
-        return $this->render('UserBundle::layoutAdmin.html.twig');
+        return $this->render('@User/layoutAdmin.html.twig');
     }
 
 
 public function dashboardAdminAction()
 {
-    return $this->render('UserBundle:Default/Principale:dashboardAdmin.html.twig');
+    return $this->render('UserBundle:Principale:dashboardAdmin.html.twig');
 }
 
 

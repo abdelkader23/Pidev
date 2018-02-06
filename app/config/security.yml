@@ -2,11 +2,15 @@
 # https://symfony.com/doc/current/security.html
 security:
     encoders:
-        FOS\UserBundle\Model\UserInterface: bcrypt
+        FOS\UserBundle\Model\UserInterface: plaintext
 
     role_hierarchy:
+        ROLE_MEMBRE_PRO: ROLE_MEMBRE_PRO
+        ROLE_MEMBRE_SIMPLE: ROLE_MEMBRE_SIMPLE
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: ROLE_ADMIN
+
+
 
 
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
@@ -22,6 +26,9 @@ security:
             form_login:
                 provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager # Use form.csrf_provider instead for Symfony <2.4
+                success_handler: redirect.after.login
+                check_path: fos_user_security_check
+                login_path: fos_user_security_login
 
             logout:       true
             anonymous:    true
@@ -31,12 +38,14 @@ security:
             security: false
 
     access_control:
-        - { path: ^/homepage, role: IS_AUTHENTICATED_REMEMBERED }
+        - { path: ^/layoutUser, role: IS_AUTHENTICATED_REMEMBERED }
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
         - { path: ^/user/, role: ROLE_USER }
+        - { path: ^/user/, role: ROLE_MEMBRE_PRO }
+        - { path: ^/user/, role: ROLE_MEMBRE_SIMPLE }
 
 
 

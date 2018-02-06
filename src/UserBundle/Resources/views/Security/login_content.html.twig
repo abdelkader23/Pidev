@@ -1,0 +1,126 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+
+
+
+
+
+
+<div class="container">
+    <div class="listar-themescrollbar">
+        <div class="listar-logincontent">
+            <div class="listar-themetabs">
+                <ul class="listar-tabnavloginregistered" role="tablist">
+                    <li role="presentation" class="active"><a href="#listar-loging" data-toggle="tab">Log in</a></li>
+                    <li role="presentation"><a href="#listar-register" data-toggle="tab">Register</a></li>
+                </ul>
+                <div class="tab-content listar-tabcontentloginregistered">
+                    <div role="tabpanel" class="tab-pane active fade in" id="listar-loging">
+
+                        <form action="{{ path("fos_user_security_check") }}" method="post" class="listar-formtheme listar-formlogin">
+                            {% if csrf_token %}
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                            {% endif %}
+
+                            <fieldset>
+                                <div class="form-group listar-inputwithicon">
+                                    <i class="icon-profile-male"></i>
+
+
+
+                                    <label for="username" >{{ 'security.login.username'|trans }}</label>
+                                    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" class="form-control" placeholder="Username Or Email"/>
+
+
+
+                                </div>
+                                <div class="form-group listar-inputwithicon">
+                                    <i class="icon-icons208"></i>
+
+
+
+
+
+                                    <label for="password">{{ 'security.login.password'|trans }}</label>
+                                    <input type="password" id="password" name="_password" required="required" class="form-control" placeholder="Password"/>
+
+
+
+                                </div>
+                                <div class="form-group">
+                                    <div class="listar-checkbox">
+
+                                        <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                                        <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+
+
+
+
+                                    </div>
+                                    <span class="active" role="presentation"><a href="#listar-lostpassword" data-toggle="tab">Lost your Password?</a></span>
+                                </div>
+
+
+
+                                <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}"class="listar-btn listar-btngreen" />
+                            </fieldset>
+                        </form>
+                    </div>
+
+
+
+                    <div role="tabpanel" class="tab-pane fade" id="listar-register">
+                        <form class="listar-formtheme listar-formlogin" method="post" action="{{ path('fos_user_registration_register') }}">
+
+                                <button class="listar-btn listar-btngreen">Register</button>
+
+                        </form>
+                    </div>
+
+
+
+
+
+                    <div role="tabpanel" class="tab-pane fade" id="listar-lostpassword">
+                        <form class="listar-formtheme listar-formlogin" >
+                            <fieldset>
+
+                                <div class="form-group listar-inputwithicon">
+                                    <i class="icon-icons208"></i>
+                                    <input type="email" name="emailaddress" class="form-control" placeholder="Email Address">
+                                </div>
+
+
+                                <button class="listar-btn listar-btngreen">Reset</button>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="listar-shareor"><span>or</span></div>
+            <div class="listar-signupwith">
+                <h2>Sign in With...</h2>
+                <ul class="listar-signinloginwithsocialaccount">
+                    <li class="listar-facebook"><a href="javascript:void(0);"><i class="icon-facebook-1"></i><span>Facebook</span></a></li>
+                    <li class="listar-twitter"><a href="javascript:void(0);"><i class="icon-twitter-1"></i><span>Twitter</span></a></li>
+                    <li class="listar-googleplus"><a href="javascript:void(0);"><i class="icon-google4"></i><span>Google +</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

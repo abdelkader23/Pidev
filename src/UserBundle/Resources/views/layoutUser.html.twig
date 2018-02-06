@@ -37,6 +37,32 @@
 <body class="listar-home listar-homeone">
 <div id="listar-wrapper" class="listar-wrapper listar-haslayout">
     {% block header %}
+
+
+
+    {% if app.request.hasPreviousSession %}
+        {% for type, messages in app.session.flashbag.all() %}
+            {% for message in messages %}
+                <div class="flash-{{ type }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
     <header id="listar-header" class="listar-header cd-auto-hide-header listar-haslayout">
         <div class="container">
             <div class="row">
@@ -44,12 +70,59 @@
                     <strong class="listar-logo"><a href="dashboardaddlisting.html"><img src="{{ asset('UserBundle/images/logo.png') }}" alt="company logo here"></a></strong>
                     <nav class="listar-addnav">
                         <ul>
-                            <li>
-                                <a id="listar-btnsignin" class="listar-btn listar-btnblue" href="{{ path('form_login') }}">
+
+
+
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+                                <li>
+                                <a id="listar-btnsignin" class="listar-btn listar-btnblue" href="{{ path('fos_user_security_logout') }}">
                                     <i class="icon-smiling-face"></i>
-                                    <span>Join Now</span>
+                                    <span>{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</span>
                                 </a>
-                            </li>
+
+
+
+                                <li>
+                                    <a id="listar-btnsignin" class="listar-btn listar-btnblue" href="{{ path('fos_user_security_logout') }}">
+                                        <i class="icon-smiling-face"></i>
+                                        <span>{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</span>
+                                    </a>
+                                </li>
+
+
+
+
+
+
+                            {% else %}
+
+
+
+
+
+
+
+                                <li>
+                                    <a id="listar-btnsignin" class="listar-btn listar-btnblue" href="{{ path('fos_user_security_login') }}">
+                                        <i class="icon-smiling-face"></i>
+                                        <span>{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</span>
+                                    </a>
+                                </li>
+                            {% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
                             <li>
                                 <a class="listar-btn listar-btngreen" href="dashboardaddlisting.html">
                                     <i class="icon-plus"></i>
@@ -58,32 +131,7 @@
                             </li>
 
 
-                            {% if app.request.hasPreviousSession %}
-                                {% for type, messages in app.session.flashbag.all() %}
-                                    {% for message in messages %}
-                                        <div class="flash-{{ type }}">
-                                            {{ message }}
-                                        </div>
-                                    {% endfor %}
-                                {% endfor %}
-                            {% endif %}
 
-
-                            <li>
-                                <div>
-                                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-                                        <a href="{{ path('fos_user_security_logout') }}">
-                                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                                        </a>
-                                    {% else %}
-                                        <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-                                    {% endif %}
-                                </div>
-
-
-
-                            </li>
                             <li>
                                 <div class="dropdown listar-themedropdown">
                                     <a id="listar-cartdropdown" class="listar-btn listar-btnround listar-btncartdropdown" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
