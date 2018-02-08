@@ -1,0 +1,533 @@
+/* =============================================
+			Join Now Style
+============================================= */
+textarea,
+select,
+.listar-select select,
+.form-control,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+    color: #8c8c8c;
+    outline: none;
+    height: 50px;
+    background: #fff;
+    font-size: 12px;
+    line-height: 24px;
+    padding: 12px 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid #ececec;
+    text-transform: capitalize;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body.listar-hidescroll {
+    overflow: hidden;
+}
+
+.listar-btnclose {
+    top: 25px;
+    opacity: 1;
+    z-index: 3;
+    right: 25px;
+    color: #fff;
+    outline: 0;
+    width: 40px;
+    height: 40px;
+    display: block;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 40px;
+    background: #1e1e1e;
+    position: absolute;
+    text-align: center;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    font-family: 'Saira', Arial, Helvetica, sans-serif;
+}
+
+.listar-loginsingup.open {
+    -webkit-transform: translate(0px, 0px) scale(1, 1);
+    -ms-transform: translate(0px, 0px) scale(1, 1);
+    transform: translate(0px, 0px) scale(1, 1);
+    opacity: 1;
+}
+
+.listar-loginsingupimg {
+    margin: 0;
+    width: 50%;
+    float: left;
+    height: 100%;
+    position: relative;
+}
+
+.listar-contentarea {
+    width: 50%;
+    height: 100%;
+    float: right;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 30px 13%;
+    background: #fff;
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+}
+
+.listar-themescrollbar {
+    width: 100%;
+    float: left;
+    overflow: hidden;
+}
+
+.listar-loginsingup .mCSB_scrollTools {
+    width: 0;
+}
+
+.listar-loginsingup .mCSB_inside > .mCSB_container {
+    margin: 0;
+}
+
+.listar-loginsingup .mCSB_scrollTools .mCSB_draggerRail {
+    width: 0;
+}
+
+.listar-logincontent {
+    width: 100%;
+    float: left;
+    height: 100%;
+    position: relative;
+}
+
+.listar-themetabs {
+    width: 100%;
+    float: left;
+}
+
+.listar-tabnavloginregistered {
+    width: 100%;
+    float: left;
+    font-size: 20px;
+    line-height: 23px;
+    list-style: none;
+    display: table;
+    table-layout: fixed;
+    border-bottom: 1px solid #e7e8e9;
+}
+
+.listar-tabnavloginregistered li {
+    display: table-cell;
+    vertical-align: top;
+    line-height: inherit;
+    list-style-type: none;
+}
+
+.listar-tabnavloginregistered li a {
+    color: #222;
+    display: block;
+    padding: 0 0 15px;
+    position: relative;
+}
+
+.listar-tabnavloginregistered li a:before {
+    left: 0;
+    top: 100%;
+    width: 0;
+    height: 1px;
+    content: '';
+    position: absolute;
+}
+
+.listar-tabnavloginregistered li.active a:before,
+.listar-tabnavloginregistered li:hover a:before {
+    width: 100%;
+}
+
+.listar-tabcontentloginregistered {
+    width: 100%;
+    float: left;
+    padding: 70px 0 0;
+}
+
+.listar-formlogin .form-group .listar-checkbox {
+    width: auto;
+}
+
+.listar-formlogin .form-group span {
+    float: right;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.listar-formlogin .form-group span a {
+    display: block;
+    color: #5c5c5c;
+}
+
+.listar-formlogin .listar-btn {
+    width: 100%;
+}
+
+.listar-shareor {
+    clear: both;
+    display: block;
+    padding: 30px 0;
+    margin: 0 15%;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.listar-shareor span {
+    z-index: 2;
+    padding: 0 10px;
+    background: #fff;
+    position: relative;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.listar-shareor:before {
+    left: 0;
+    top: 50%;
+    content: '';
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    background: #e7e8e9;
+}
+
+.listar-signupwith {
+    width: 100%;
+    float: left;
+}
+
+.listar-signupwith h2 {
+    margin: 0;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+}
+
+.listar-signinloginwithsocialaccount {
+    width: 100%;
+    float: left;
+    font-size: 12px;
+    list-style: none;
+    line-height: 40px;
+    padding: 30px 0 0;
+    text-transform: uppercase;
+}
+
+.listar-signinloginwithsocialaccount li {
+    padding: 0 5px;
+    line-height: inherit;
+    list-style-type: none;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.listar-signinloginwithsocialaccount li a {
+    color: #fff;
+    display: block;
+    padding: 0 25px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.listar-signinloginwithsocialaccount li a i {
+    font-size: 15px;
+    line-height: 15px;
+    margin: 0 15px 0 0;
+}
+
+.listar-signinloginwithsocialaccount li a i,
+.listar-signinloginwithsocialaccount li a span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.listar-signinloginwithsocialaccount li a i,
+.listar-signinloginwithsocialaccount li a span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.listar-inputwithicon.listar-facebook .listar-icon,
+.listar-checkbox.listar-facebook,
+li.listar-facebook a {
+    background: #3b5999;
+}
+
+.listar-inputwithicon.listar-twitter .listar-icon,
+.listar-checkbox.listar-twitter,
+li.listar-twitter a {
+    background: #55acee;
+}
+
+.listar-inputwithicon.listar-linkedin .listar-icon,
+.listar-checkbox.listar-linkedin,
+li.listar-linkedin a {
+    background: #0077B5;
+}
+
+.listar-inputwithicon.listar-linkedin .listar-icon,
+.listar-checkbox.listar-linkedin,
+li.listar-linkedin a {
+    background: #0077B5;
+}
+
+.listar-inputwithicon.listar-skype .listar-icon,
+.listar-checkbox.listar-skype,
+li.listar-skype a {
+    background: #00aff0;
+}
+
+.listar-checkbox.listar-dropbox,
+li.listar-dropbox a {
+    background: #007ee5;
+}
+
+.listar-checkbox.listar-vimeo,
+li.listar-vimeo a {
+    background: #1ab7ea;
+}
+
+.listar-checkbox.listar-tumblr,
+li.listar-tumblr a {
+    background: #34465d;
+}
+
+.listar-checkbox.listar-yahoo,
+li.listar-yahoo a {
+    background: #410093;
+}
+
+.listar-inputwithicon.listar-googleplus .listar-icon,
+.listar-checkbox.listar-googleplus,
+li.listar-googleplus a {
+    background: #dd4b39;
+}
+
+.listar-inputwithicon.listar-pinterestp .listar-icon,
+.listar-checkbox.listar-pinterestp,
+li.listar-pinterestp a {
+    background: #bd081c;
+}
+
+.listar-checkbox.listar-youtube,
+li.listar-youtube a {
+    background: #cd201f;
+}
+
+.listar-checkbox.listar-stumbleupon,
+li.listar-stumbleupon a {
+    background: #eb4924;
+}
+
+.listar-checkbox.listar-reddit,
+li.listar-reddit a {
+    background: #ff5700;
+}
+
+.listar-checkbox.listar-quora,
+li.listar-quora a {
+    background: #b92b27;
+}
+
+.listar-checkbox.listar-yelp,
+li.listar-yelp a {
+    background: #af0606;
+}
+
+.listar-checkbox.listar-soundcloud,
+li.listar-soundcloud a {
+    background: #ff3300;
+}
+
+.listar-checkbox.listar-whatsapp,
+li.listar-whatsapp a {
+    background: #25d366;
+}
+
+.listar-checkbox.listar-wechat,
+li.listar-wechat a {
+    background: #09b83e;
+}
+
+.listar-checkbox.listar-instagram,
+li.listar-instagram a {
+    background: #e4405f;
+}
+
+.listar-checkbox.listar-dribbble,
+li.listar-dribbble a {
+    background: #ea4c89;
+}
+
+.listar-checkbox.listar-flickr,
+li.listar-flickr a {
+    background: #ff0084;
+}
+
+.listar-checkbox.listar-rss,
+li.listar-rss a {
+    background: #ff6600;
+}
+
+.listar-btn {
+    color: #fff;
+    padding: 0 30px;
+    position: relative;
+    text-align: center;
+    -webkit-border-radius: 22px;
+    border-radius: 22px;
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid #fff;
+    text-transform: capitalize;
+    font: 400 14px/42px 'Saira', Arial, Helvetica, sans-serif;
+}
+
+.listar-inputwithicon {
+    position: relative;
+}
+
+.listar-inputwithicon i {
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+    line-height: 50px;
+    position: absolute;
+    text-align: center;
+    padding: 0 0 0 10px;
+}
+
+.listar-inputwithicon .form-control {
+    z-index: 1;
+    position: relative;
+    padding: 12px 20px 12px 50px;
+}
+
+.form-group {
+    width: 100%;
+    float: left;
+    margin: 0 0 20px;
+}
+
+.listar-formsearchlisting .form-group:nth-child(3) {
+    padding: 0 10px 0 45px;
+}
+
+.listar-formsearchlisting .form-group p {
+    margin: 0;
+    float: left;
+    width: auto;
+    line-height: 60px;
+    text-transform: capitalize;
+}
+
+.listar-listingarea .listar-formsearchlisting fieldset:first-child .form-group {
+    padding: 0 10px;
+    border: 0 !important;
+}
+
+.listar-listingarea .listar-formsearchlisting fieldset:first-child .form-group i {
+    left: 10px;
+}
+
+.listar-listingarea .listar-formsearchlisting .form-group .form-control {
+    height: 60px;
+    padding: 15px 15px 15px 50px
+}
+
+.listar-themescrollbar {
+    width: 100%;
+    float: left;
+    overflow: hidden;
+}
+
+.mCSB_scrollTools {
+    width: 3px;
+}
+
+.mCSB_inside > .mCSB_container {
+    margin-right: 14px;
+}
+
+.mCSB_scrollTools .mCSB_draggerRail {
+    width: 3px;
+    float: right;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    background: #ddd;
+}
+
+.listar-categoreyaccordion .mCSB_scrollTools .mCSB_draggerRail {
+    background: #1f1f1f;
+}
+
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+.mCSB_scrollTools,
+.mCSB_scrollTools .mCSB_buttonUp,
+.mCSB_scrollTools .mCSB_buttonDown,
+.mCSB_scrollTools .mCSB_buttonLeft,
+.mCSB_scrollTools .mCSB_buttonRight,
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    opacity: 1 !important;
+}
+
+.mCSB_scrollTools {
+    overflow: hidden;
+}
+
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    background: #a5a5a5;
+}

@@ -39,6 +39,27 @@ class User extends BaseUser
      */
 
     private $prenom;
+    /**
+     *
+     * @ORM\Column(type="integer")
+     */
+    private $phone;
+
+    /**
+     * @return mixed
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * @param mixed $phone
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+    }
 
     /**
      * @return mixed

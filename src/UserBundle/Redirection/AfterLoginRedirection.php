@@ -12,33 +12,25 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
-use Symfony\Component\Security\Core\Authorization\AuthorizationChecker;
-use Symfony\Component\Security\Core\Role\Role;
 use Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
 
 class AfterLoginRedirection implements AuthenticationSuccessHandlerInterface
-
 {
 
-
     /**
-     * @var  \Symfony\Component\Routing\RouterInterface
+     * @var \Symfony\Component\Routing\RouterInterface
      */
 
+
     private $router;
-
-
-    /*
-     *
+    /**
      * @param RouterInterface $router
      */
 
-    public function _construct(RouterInterface $router)
+    public function __construct(RouterInterface $router)
     {
         $this->router = $router;
-
     }
-
 
     /**
      * @param Request $request
@@ -46,29 +38,27 @@ class AfterLoginRedirection implements AuthenticationSuccessHandlerInterface
      * @return RedirectResponse
      */
 
-
     public function onAuthenticationSuccess(Request $request, TokenInterface $token)
-    {// Get list of roles for current user
-
+    {
+        // Get list of roles for current user
         $roles = $token->getRoles();
         // Tranform this list in array
-        $rolesTab = array_map(
+        $rolesTab = array_map(function($role){
+            return $role->getRole();
+        }, $roles);
+        // If is a admin or super admin we redirect to the backoffice area
+        if (in_array('ROLE_ADMIN', $rolesTab, true) )
+            $redirection = new RedirectResponse($this->router->generate('dashboardAdmin'));
+        // otherwise, if is a commercial user we redirect to the crm area
+        elseif (in_array('ROLE_PROPRIETAIRE', $rolesTab, true))
+            $redirection = new RedirectResponse($this->router->generate('homeUser'));
+        else $redirection = new RedirectResponse($this->router->generate('homeUser'));
 
-            function (Role $role) {
 
-                return $role->getRole();
-            }, $roles);
-// If is a admin or super admin we redirect to the backoffice area
-
-        if (in_array('ROLE_MEMBRE_PRO', $rolesTab, true))
-            $redirection = new RedirectResponse($this->router
-                ->generate('homeUser'));
-        else if (in_array('ROLE_MEMBRE_SIMPLE', $rolesTab, true))
-            $redirection = new RedirectResponse($this->router->generate("homeUser"));
-        else $redirection = new RedirectResponse($this->router
-            ->generate('dashboardAdmin'));
         return $redirection;
-    }
 
+
+
+    }
 
 }

@@ -5,18 +5,100 @@
 
 
 
-    <table border="0">
-        <tr>
-            <td><span class="label label-default">{{ 'profile.show.username'|trans }}:</span></td>
 
-            <td><span class="label label-default">{{ user.username }}</span></td>
-        </tr>
 
-        <tr>
-            <td><span class="label label-default">{{ 'profile.show.email'|trans }}:</span></td>
+        <div class="container-fluid">
+            <h1>Voici Votre Profile</h1>
 
-            <td><span class="label label-default">{{ user.email }}</span></td>
-        </tr>
+
+            <div class="row">
+                <div class="col-sm-3" ></div>
+                <div class="col-sm-6" style="background-color:lavenderblush;">
+
+
+
+                    <div id="listar-content" class="listar-content">
+
+
+                        <fieldset>
+                            <div class="listar-boxtitle">
+                                <h3>My Profile</h3>
+                            </div>
+                            <div class="listar-dashboardmyprofile">
+                                <figure class="listare-profilepic">
+                                    <img src="{{ asset('UserBundle/images/profile-pic.jpg') }}" alt="image description">
+
+                                </figure>
+                                <div class="row">
+
+
+                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                        <div class="form-group listar-dashboardfield">
+                                            <label>{{ 'profile.show.username'|trans }}</label>
+
+                                            {{ user.username }}
+
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                        <div class="form-group listar-dashboardfield">
+                                            <label>  {{ 'profile.show.email'|trans }}</label>
+
+                                            {{ user.email }}
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                        <div class="form-group listar-dashboardfield">
+                                            <label >Phone Number</label>
+
+                                            {{ user.phone }}
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </fieldset>
+
+
+
+
+
+                    </div>
+
+
+
+
+
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

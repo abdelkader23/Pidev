@@ -76,16 +76,17 @@ fos_user:
     from_email:
         address: 'abdelkader.jouini@esprit.tn'
         sender_name: 'abdelkader'
-
     registration:
-        confirmation:
-            from_email:
-                address: 'abdelkader.jouini@esprit.tn'
-                sender_name: 'abdelkader'
-    resetting:
-        email:
-            from_email:
-                address: 'abdelkader.jouini@esprit.tn'
-                sender_name: 'abdelkader'
+            form:
+              type: UserBundle\Form\RegistrationType
+    profile:
+            form:
+              type: UserBundle\Form\ProfileType
+twig:
+    cache: false
+
+
+
+
 
 

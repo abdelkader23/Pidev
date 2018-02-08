@@ -1,3 +1,4 @@
+{% trans_default_domain 'FOSUserBundle' %}
 <!doctype html>
 <!--[if lt IE 7]>		<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="zxx"> <![endif]-->
 <!--[if IE 7]>			<html class="no-js lt-ie9 lt-ie8" lang="zxx"> <![endif]-->
@@ -8,7 +9,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    {% block title %}  <title>BootStrap HTML5 CSS3 Theme</title>{% endblock  %}
+    {% block title %}  <title>Aceuille admin</title>{% endblock  %}
+
+
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="{{ asset('UserBundle/img/favicon.png') }}">
@@ -66,65 +69,58 @@
                         <ul>
                             <li>
 
+                                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 
-
-
-
-
-
-
-
-                                <div class="dropdown listar-dropdown">
-                                    <a class="listar-userlogin listar-btnuserlogin" href="javascript:void(0);" id="listar-dropdownuser" data-toggle="dropdown">
-                                        <span><img src="{{ asset('UserBundle/images/author/img-10.jpg') }}" alt="image description"></span>
-                                        <em>John Parker</em>
-                                        <i class="fa fa-angle-down"></i>
-                                    </a>
-                                    <div class="dropdown-menu listar-dropdownmen" aria-labelledby="listar-dropdownuser">
-                                        <ul>
-                                            <li>
-                                                <a href="{{ path('homeUser') }}">
-                                                    <i class="icon-speedometer2"></i>
-                                                    <span>Dashboard</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="dashboardlisting.html">
-                                                    <i class="icon-layers"></i>
-                                                    <span>My Listings</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="dashboardmyprofile.html">
-                                                    <i class="icon-user2"></i>
-                                                    <span>My Profile</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="index-2.html">
-                                                    <i class="icon-lock6"></i>
-                                                    <span>Logout</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-
-
-
-
-
-
-
-                            </li>
                             <li>
-                                <a class="listar-btn listar-btngreen" href="dashboardaddlisting.html">
-                                    <i class="icon-plus"></i>
-                                    <span>Add Listing</span>
+                                <a id="listar-btnsignin" class="listar-btn listar-btnblue" href="{{ path('fos_user_profile_show') }}">
+                                    <i class="icon-smiling-face"></i>
+                                    <span>{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                                        Voire Profile
+                                    </span>
+                                </a>
+
+
+                            <li>
+                                <a id="listar-btnsignin" class="listar-btn listar-btnblue" href="{{ path('fos_user_security_logout') }}">
+                                    <i class="icon-smiling-face"></i>
+                                    <span>{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</span>
                                 </a>
                             </li>
-                        </ul>
+
+                            <li>
+                                <a id="listar-btnsignin" class="btn btn-warning"
+                                   href="{{ path('fos_user_profile_edit') }}">
+                                    <i class="icon-smiling-face-eyebrows2"></i>
+                                    <span>Modifier Profile</span>
+                                </a>
+                            </li>
+
+
+
+
+                            {% else %}
+
+
+
+
+
+
+
+                                <li>
+                                    <a id="listar-btnsignin" class="listar-btn listar-btnblue" href="{{ path('fos_user_security_login') }}">
+                                        <i class="icon-smiling-face"></i>
+                                        <span>{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</span>
+                                    </a>
+                                </li>
+                            {% endif %}
+
+
+
+
+
+
+
+
                     </nav>
                     <nav id="listar-nav" class="listar-nav">
                         <div class="navbar-header">
@@ -266,16 +262,16 @@
                     <div class="listar-menutitle listar-menutitleaccount"><span>Account</span></div>
                     <ul>
                         <li>
-                            <a href="dashboardmyprofile.html">
+                            <a href="{{ path('fos_user_profile_edit') }}">
                                 <i class="icon-lock6"></i>
                                 <span>My Profile</span>
                             </a>
                         </li>
                          <li>
-                            <a href="dashboard-profile-setting.html">
-                                <i class="icon-user4"></i>
-                                <span>Logout</span>
-                            </a>
+                             <a href="{{ path('fos_user_security_logout') }}">
+                                 <i class="icon-user4"></i>
+                                 <span>Logout</span>
+                             </a>
                         </li>
                     </ul>
                 </nav>

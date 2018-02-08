@@ -3,18 +3,19 @@
 namespace UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
+use Symfony\Component\HttpFoundation\RedirectResponse;
 class UserController extends Controller
 {
-
-
-
+    public function RedirectRegisterAction()
+    {
+        return new RedirectResponse($this->get('router')->generate('homeUser'));
+    }
 
 
 
     public function layoutUserAction()
     {
-        return $this->render('@User/layoutUser.html.twig');
+        return $this->render('UserBundle:login:login.html.twig');
     }
 
 

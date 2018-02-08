@@ -1,3 +1,4 @@
+{% trans_default_domain 'FOSUserBundle' %}
 <!doctype html>
 <!--[if lt IE 7]>		<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="zxx"> <![endif]-->
 <!--[if IE 7]>			<html class="no-js lt-ie9 lt-ie8" lang="zxx"> <![endif]-->
@@ -9,7 +10,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    {% block title %} <title> Bonplan </title>{% endblock %}
+    {% block title %} <title> Aceuille Membre </title>{% endblock %}
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -39,28 +40,15 @@
     {% block header %}
 
 
-
-    {% if app.request.hasPreviousSession %}
-        {% for type, messages in app.session.flashbag.all() %}
-            {% for message in messages %}
-                <div class="flash-{{ type }}">
-                    {{ message }}
-                </div>
-            {% endfor %}
-        {% endfor %}
+    {% if is_granted('ROLE_ADMIN') %}
+        Administrator
+    {% elseif is_granted('ROLE_USER') %}
+        User
+    {% else %}
+        Anonymous
     {% endif %}
 
     <div>
-
-
-
-
-
-
-
-
-
-
 
 
     <header id="listar-header" class="listar-header cd-auto-hide-header listar-haslayout">
@@ -72,15 +60,15 @@
                         <ul>
 
 
-
                             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 
                                 <li>
-                                <a id="listar-btnsignin" class="listar-btn listar-btnblue" href="{{ path('fos_user_security_logout') }}">
-                                    <i class="icon-smiling-face"></i>
-                                    <span>{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</span>
-                                </a>
-
+                                    <a id="listar-btnsignin" class="listar-btn listar-btnblue" href="{{ path('fos_user_profile_show') }}">
+                                        <i class="icon-smiling-face"></i>
+                                        <span>{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                                            Voire Profile
+                                    </span>
+                                    </a>
 
 
                                 <li>
@@ -90,7 +78,13 @@
                                     </a>
                                 </li>
 
-
+                                <li>
+                                    <a id="listar-btnsignin" class="btn btn-warning"
+                                       href="{{ path('fos_user_profile_edit') }}">
+                                        <i class="icon-smiling-face-eyebrows2"></i>
+                                        <span>Modifier Profile</span>
+                                    </a>
+                                </li>
 
 
 
@@ -112,57 +106,6 @@
                             {% endif %}
 
 
-
-
-
-
-
-
-
-
-
-
-
-                            <li>
-                                <a class="listar-btn listar-btngreen" href="dashboardaddlisting.html">
-                                    <i class="icon-plus"></i>
-                                    <span>Add Listing</span>
-                                </a>
-                            </li>
-
-
-
-                            <li>
-                                <div class="dropdown listar-themedropdown">
-                                    <a id="listar-cartdropdown" class="listar-btn listar-btnround listar-btncartdropdown" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <em>2</em>
-                                        <i class="icon-icons240"></i>
-                                    </a>
-                                    <div class="dropdown-menu listar-themedropdownmenu listar-minicart" aria-labelledby="listar-cartdropdown">
-                                        <div class="listar-cartitem">
-                                            <figure><a href="javascript:void(0);"><img src="{{ asset('UserBundle/images/cart/img-01.jpg') }}" alt="image description"></a></figure>
-                                            <div class="listar-iteminfo">
-                                                <span>Orange Juice</span>
-                                                <span>2 x $15</span>
-                                                <a class="listar-btndelate" href="javascript:void(0);">X</a>
-                                            </div>
-                                        </div>
-                                        <div class="listar-cartitem">
-                                            <figure><a href="javascript:void(0);"><img src="{{ asset('UserBundle/images/cart/img-01.jpg') }}" alt="image description"></a></figure>
-                                            <div class="listar-iteminfo">
-                                                <span>Orange Juice</span>
-                                                <span>2 x $15</span>
-                                                <a class="listar-btndelate" href="javascript:void(0);">X</a>
-                                            </div>
-                                        </div>
-                                        <div class="listar-cartitem listar-totalarea">
-                                            <span>Order Total:</span>
-                                            <span>$60.00</span>
-                                        </div>
-                                        <a class="listar-btn listar-btngreen listar-btn-lg" href="javascript:void(0);">View Bag &amp; Checkout</a>
-                                    </div>
-                                </div>
-                            </li>
                         </ul>
                     </nav>
                     <nav id="listar-nav" class="listar-nav">

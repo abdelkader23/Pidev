@@ -1,113 +1,161 @@
 {% trans_default_domain 'FOSUserBundle' %}
+   {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+
+   {% block head %}
+       <head>
+           <meta charset="utf-8">
+           <meta http-equiv="X-UA-Compatible" content="IE=edge">
+           <title>{% block title %}Register{% endblock %}</title>
+           <meta name="description" content="">
+           <meta name="viewport" content="width=device-width, initial-scale=1">
+           <link rel="icon" href="{{ asset('UserBundle/img/favicon.png') }}">
+           <link rel="stylesheet" href="{{ asset('UserBundle/css/bootstrap.min.css') }}">
+           <link rel="stylesheet" href="{{ asset('UserBundle/css/bootstrap-slider.css') }}">
+           <link rel="stylesheet" href="{{ asset('UserBundle/css/normalize.css') }}">
+           <link rel="stylesheet" href="{{ asset('UserBundle/css/font-awesome.min.css') }}">
+           <link rel="stylesheet" href="{{ asset('UserBundle/css/icomoon.css') }}">
+           <link rel="stylesheet" href="{{ asset('UserBundle/css/chosen.css') }}">
+           <link rel="stylesheet" href="{{ asset('UserBundle/css/prettyPhoto.css') }}">
+           <link rel="stylesheet" href="{{ asset('UserBundle/css/scrollbar.css') }}">
+           <link rel="stylesheet" href="{{ asset('UserBundle/css/morris.css') }}">
+           <link rel="stylesheet" href="{{ asset('UserBundle/css/owl.carousel.css') }}">
+           <link rel="stylesheet" href="{{ asset('UserBundle/css/YouTubePopUp.css') }}">
+           <link rel="stylesheet" href="{{ asset('UserBundle/css/auto-complete.css') }}">
+           <link rel="stylesheet" href="{{ asset('UserBundle/css/jquery.navhideshow.css') }}">
+           <link rel="stylesheet" href="{{ asset('UserBundle/css/transitions.css') }}">
+           <link rel="stylesheet" href="{{ asset('UserBundle/css/styleregister.css') }}">
+
+           <link rel="stylesheet" href="{{ asset('UserBundle/css/color.css') }}">
+           <link rel="stylesheet" href="{{ asset('UserBundle/css/responsive.css') }}">
 
 
-<div class="right_col" role="main">
-    <div class="">
-
-
-
-        <div class="clearfix"></div>
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                    <div class="x_title">
-
-
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="x_content">
-                        <br />
-                        <center>
-                            <h2 class="h2">Register</h2>
-                            {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-
-
-                            <div class="form-group">
-
-                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                    {{ form_row(form.username,{'attr': {'class': 'form-control col-md-7 col-xs-12','placeholder': 'username'}}) }}
-
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-
-                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                    {{ form_row(form.email,{'attr': {'class': 'form-control col-md-7 col-xs-12','placeholder': 'email'}}) }}
-
-                                </div>
-                            </div>
+       </head>
+   {% endblock %}
 
 
 
-                            <div class="form-group">
+{% block register %}
+    <div id="listar-loginsingup" class="listar-loginsingup">
 
-                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                    {{ form_row(form.plainPassword,{'attr': {'class': 'form-control col-md-7 col-xs-12','placeholder': 'plainPassword'}}) }}
+        <a class="listar-btnclose" href="{{ path('user_layoutUser') }}">x</a>
+        <figure class="listar-loginsingupimg" data-vide-bg="poster: {{ asset('UserBundle/images/divert.jpg') }}"
+                data-vide-options="position: 50% 50%"></figure>
+        <div class="listar-contentarea">
+            <div class="listar-themescrollbar">
+                <div class="listar-logincontent">
+                    <div class="listar-themetabs">
+                        <ul class="listar-tabnavloginregistered" role="tablist">
+                            <li role="presentation"><a href="{{ path('fos_user_security_login') }}">Log in</a>
+                            </li>
+                            <li role="presentation" class="active"><a
+                                        href="{{ path('fos_user_registration_register') }}">Register</a></li>
+                        </ul>
+                        <!-- Register form -->
+                        <div role="tabpanel" id="listar-register">
+                            <form class="listar-formtheme listar-formlogin">
+                                <fieldset class="form-group row">
 
-                                </div>
-                            </div>
+                                    <div class="form-group listar-inputwithicon">
+                                        <i class="icon-profile-male"> </i>
+                                        {{ form_widget(form.username, {'attr': {'class': 'form-control','placeholder':'Username'}}) }}
+                                    </div>
+                                    <div class="form-group listar-inputwithicon">
+                                        <i class="icon-icons208"></i>
+                                        {{ form_widget(form.email, {'attr': {'class': 'form-control','placeholder':'Email Address'}}) }}
 
-                            <div class="form-group">
-
-                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                    {{ form_row(form.plainPassword,{'attr': {'class': 'form-control col-md-7 col-xs-12','placeholder': 'plainPassword'}}) }}
-
-                                </div>
-                            </div>
-
-
-
-
-                            <div class="form-group">
-
-                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                    {{ form_row(form.nom,{'attr': {'class': 'form-control col-md-7 col-xs-12','placeholder': 'nom'}}) }}
-
-                                </div>
-                            </div>
-
-
-
-                            <div class="form-group">
-
-                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                    {{ form_row(form.prenom,{'attr': {'class': 'form-control col-md-7 col-xs-12','placeholder': 'prenom'}}) }}
-
-                                </div>
-                            </div>
-
-
-
-                            <div class="form-group">
-
-                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                    {{ form_row(form.roles,{'attr': {'class': 'form-control col-md-7 col-xs-12','placeholder': 'roles'}}) }}
-
-                                </div>
-                            </div>
-
-
-
-                            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-                            <div class="form-group">
-                                <div class="ln_solid"></div>
-                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                    <button type="reset" class="btn btn-primary" >Cancel</button>
-                                    <div>
-                                        <input type="submit"  class="btn btn-success" value="{{ 'registration.submit'|trans }}" />
                                     </div>
 
-                                </div>
-                            </div>
-                            {{ form_end(form) }}
-                        </center>
+                                    <div class="form-group listar-inputwithicon">
+                                        <i class="icon-icons208"></i>
+                                        {{ form_widget(form.phone, {'attr': {'class': 'form-control','placeholder':'phone'}}) }}
+
+                                    </div>
+                                    <div class="form-group listar-inputwithicon">
+                                        <i class="icon-lock-stripes"></i>
+
+                                        {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control','placeholder':'Password'}}) }}
+
+                                    </div>
+                                    <div class="form-group listar-inputwithicon">
+                                        <i class="icon-lock-stripes"></i>
+                                        {{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control','placeholder':'Password confirmation'}}) }}
+
+                                    </div>
+                                    <div class="form-group listar-inputwithicon">
+                                        <i class="icon-profile-male"> </i>
+                                        {{ form_widget(form.nom, {'attr': {'class': 'form-control','placeholder':'Nom'}}) }}
+                                    </div>
+                                    <div class="form-group listar-inputwithicon">
+                                        <i class="icon-profile-male"> </i>
+                                        {{ form_widget(form.prenom, {'attr': {'class': 'form-control','placeholder':'Prenom'}}) }}
+                                    </div>
+                                    <div>
+                                        <input type="submit" value="Register" class="listar-btn listar-btngreen"/>
+                                    </div>
+                                    {{ form_end(form) }}
 
 
+
+
+                                </fieldset>
+                            </form>
+                        </div>
+
+                    </div>
+                    <!-- Social Login -->
+                    <div class="listar-shareor"><span>or</span></div>
+                    <div class="listar-signupwith">
+                        <h2>Sign in With...</h2>
+                        <ul class="listar-signinloginwithsocialaccount">
+                            <li class="listar-facebook"><a href="javascript:void(0);"><i
+                                            class="icon-facebook-1"></i><span>Facebook</span></a></li>
+                            <li class="listar-twitter"><a href="javascript:void(0);"><i
+                                            class="icon-twitter-1"></i><span>Twitter</span></a></li>
+                            <li class="listar-googleplus"><a href="javascript:void(0);"><i
+                                            class="icon-google4"></i><span>Google +</span></a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+{% endblock %}
+
+
+
+
+{{ form_end(form) }}
+{% block js %}
+    <script src="{{ asset('UserBundle/js/vendor/jquery-library.js') }}"></script>
+    <script src="{{ asset('UserBundle/js/vendor/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('UserBundle/js/mapclustering/data.json') }}"></script>
+    <script src="https://maps.google.com/maps/api/js?key=AIzaSyCR-KEWAVCn52mSdeVeTqZjtqbmVJyfSus&amp;language=en"></script>
+    <script src="{{ asset('UserBundle/js/tinymce/tinymce.min4bb5.js') }}"></script>
+    <script src="{{ asset('UserBundle/js/mapclustering/markerclusterer.min.js') }}"></script>
+    <script src="{{ asset('UserBundle/js/mapclustering/infobox.js') }}"></script>
+    <script src="{{ asset('UserBundle/js/mapclustering/map.js') }}"></script>
+    <script src="{{ asset('UserBundle/js/ResizeSensor.js.js') }}"></script>
+    <script src="{{ asset('UserBundle/js/jquery.sticky-sidebar.js') }}"></script>
+    <script src="{{ asset('UserBundle/js/YouTubePopUp.jquery.js') }}"></script>
+    <script src="{{ asset('UserBundle/js/jquery.navhideshow.js') }}"></script>
+    <script src="{{ asset('UserBundle/js/backgroundstretch.js') }}"></script>
+    <script src="{{ asset('UserBundle/js/jquery.sticky-kit.js') }}"></script>
+    <script src="{{ asset('UserBundle/js/bootstrap-slider.js') }}"></script>
+    <script src="{{ asset('UserBundle/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('UserBundle/js/jquery.vide.min.js') }}"></script>
+    <script src="{{ asset('UserBundle/js/auto-complete.html') }}"></script>
+    <script src="{{ asset('UserBundle/js/chosen.jquery.js') }}"></script>
+    <script src="{{ asset('UserBundle/js/scrollbar.min.js') }}"></script>
+    <script src="{{ asset('UserBundle/js/isotope.pkgd.js') }}"></script>
+    <script src="{{ asset('UserBundle/js/jquery.steps.js') }}"></script>
+    <script src="{{ asset('UserBundle/js/prettyPhoto.js') }}"></script>
+    <script src="{{ asset('UserBundle/js/raphael-min.js') }}"></script>
+    <script src="{{ asset('UserBundle/js/parallax.js') }}"></script>
+    <script src="{{ asset('UserBundle/js/sortable.js') }}"></script>
+    <script src="{{ asset('UserBundle/js/countTo.js') }}"></script>
+    <script src="{{ asset('UserBundle/js/appear.js') }}"></script>
+    <script src="{{ asset('UserBundle/js/gmap3.js') }}"></script>
+    <script src="{{ asset('UserBundle/js/dev_themefunction.js') }}"></script>
+    <script src="{{ asset('UserBundle/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
+
+{% endblock %}

@@ -6,9 +6,6 @@ user_layoutUser:
     path:     /layoutUser
     defaults: { _controller: UserBundle:User:layoutUser }
 
-form_login:
-    path:     /formlogin
-    defaults: { _controller: UserBundle:User:form_login }
 
 
 
@@ -25,6 +22,7 @@ user_layoutAdmin:
     path:     /layoutAdmin
     defaults: { _controller: UserBundle:User:layoutAdmin }
 
-reset:
-    path:     /reset
-    defaults: { _controller: FOSUserBundle:ChangePassword:changePassword }
+redirect_register:
+    path:     /register/confirmed
+    defaults: { _controller: UserBundle:User:RedirectRegister}
+
