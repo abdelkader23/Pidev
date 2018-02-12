@@ -18,7 +18,7 @@ class RegistrationType extends AbstractType
                 'choices' => array(
                     'Utilisateur' => 'ROLE_USER',
                     'Proprietaire' => 'ROLE_PROPRIETAIRE',
-                    'Membre simple'=>'ROLE_MEMBRE_SIMPLE'
+                    'Membre'=>'ROLE_MEMBRE_SIMPLE'
 
                 ),
                 'required' => true,

@@ -6,9 +6,6 @@ user_layoutUser:
     path:     /layoutUser
     defaults: { _controller: UserBundle:User:layoutUser }
 
-
-
-
 homeUser:
     path:     /homeUser
     defaults: { _controller: UserBundle:User:homeUser }
@@ -26,3 +23,10 @@ redirect_register:
     path:     /register/confirmed
     defaults: { _controller: UserBundle:User:RedirectRegister}
 
+
+user_compte:
+    path:     /user_compte
+    defaults: { _controller: UserBundle:User:compteUser }
+user_message:
+    path:     /user_message
+    defaults: { _controller: UserBundle:User:messageUser }

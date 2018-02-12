@@ -27,13 +27,26 @@
     <link rel="stylesheet" href="{{ asset('UserBundle/css/owl.carousel.css')}}">
     <link rel="stylesheet" href="{{ asset('UserBundle/css/YouTubePopUp.css')}}">
     <link rel="stylesheet" href="{{ asset('UserBundle/css/auto-complete.css')}}">
+
     <link rel="stylesheet" href="{{ asset('UserBundle/css/jquery.navhideshow.css')}}">
+
     <link rel="stylesheet" href="{{ asset('UserBundle/css/transitions.css')}}">
     <link rel="stylesheet" href="{{ asset('UserBundle/style.css')}}">
     <link rel="stylesheet" href="{{ asset('UserBundle/dbstyle.css')}}">
     <link rel="stylesheet" href="{{ asset('UserBundle/css/color.css')}}">
     <link rel="stylesheet" href="{{ asset('UserBundle/css/responsive.css')}}">
     <link rel="stylesheet" href="{{ asset('UserBundle/css/dbresponsive.css')}}">
+
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('UserBundle/assets/css/vendor.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('UserBundle/assets/css/flat-admin.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('UserBundle/assets/css/theme/blue-sky.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('UserBundle/assets/css/theme/blue.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('UserBundle/assets/css/theme/red.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('UserBundle/assets/css/theme/yellow.css') }}">
+
+
+
     <script src="{{ asset('UserBundle/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js')}}"></script>
 </head>
 <body>
@@ -65,7 +78,228 @@
             <div class="container-fluid">
                 <div class="row">
                     <strong class="listar-logo"><a href="index-2.html"><img src="{{ asset('UserBundle/images/logo.png') }}" alt="company logo here"></a></strong>
-                    <nav class="listar-addnav">
+
+
+                    <nav class="navbar navbar-default" id="navbar">
+                        <div class="container-fluid">
+                            <div class="navbar-collapse collapse in">
+
+                                <ul class="nav navbar-nav navbar-right">
+
+
+                                    <li class="dropdown notification warning">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                            <div class="icon"><i class="fa fa-comments" aria-hidden="true"></i></div>
+                                            <div class="title">Unread Messages</div>
+                                            <div class="count">99</div>
+                                        </a>
+                                        <div class="dropdown-menu">
+                                            <ul>
+                                                <li class="dropdown-header">Message</li>
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="badge badge-warning pull-right">10</span>
+                                                        <div class="message">
+                                                            <img class="profile" src="https://placehold.it/100x100">
+                                                            <div class="content">
+                                                                <div class="title">"Payment Confirmation.."</div>
+                                                                <div class="description">Alan Anderson</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="badge badge-warning pull-right">5</span>
+                                                        <div class="message">
+                                                            <img class="profile" src="https://placehold.it/100x100">
+                                                            <div class="content">
+                                                                <div class="title">"Hello World"</div>
+                                                                <div class="description">Marco  Harmon</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="badge badge-warning pull-right">2</span>
+                                                        <div class="message">
+                                                            <img class="profile" src="https://placehold.it/100x100">
+                                                            <div class="content">
+                                                                <div class="title">"Order Confirmation.."</div>
+                                                                <div class="description">Brenda Lawson</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="dropdown-footer">
+                                                    <a href="#">View All <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="dropdown notification danger">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                            <div class="icon"><i class="fa fa-bell" aria-hidden="true"></i></div>
+                                            <div class="title">System Notifications</div>
+                                            <div class="count">10</div>
+                                        </a>
+                                        <div class="dropdown-menu">
+                                            <ul>
+                                                <li class="dropdown-header">Notification</li>
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="badge badge-danger pull-right">8</span>
+                                                        <div class="message">
+                                                            <div class="content">
+                                                                <div class="title">New Order</div>
+                                                                <div class="description">$400 total</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="badge badge-danger pull-right">14</span>
+                                                        Inbox
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="badge badge-danger pull-right">5</span>
+                                                        Issues Report
+                                                    </a>
+                                                </li>
+                                                <li class="dropdown-footer">
+                                                    <a href="#">View All <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="dropdown profile">
+                                        <a id="listar-btnsignin" class="dropdown-toggle" href="{{ path('fos_user_profile_show') }}" data-toggle="dropdown">
+                                            <img class="profile-img" src="{{ asset('UserBundle/assets/images/profile.png') }}"></img>
+
+
+                                            </span>
+                                        </a>
+                                        <div class="dropdown-menu">
+                                            <div class="profile-info">
+                                                <center> <h3>{{  app.user.username }}</h3></center>
+                                            </div>
+                                            <ul class="action">
+                                                <li>
+                                                    <a id="listar-btnsignin"
+                                                       href="{{ path('fos_user_profile_edit') }}">
+
+                                                        <span class="badge badge-danger pull-right"></span>
+                                                        Modifier Profile
+                                                    </a>
+                                                </li>
+
+
+
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="badge badge-danger pull-right">5</span>
+                                                        My Inbox
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a id="listar-btnsignin"  href="{{ path('fos_user_security_logout') }}">
+
+                                                        <span>{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div id="listar-navigation" class="collapse navbar-collapse listar-navigation">
+                                    <ul>
+                                        <li><a href="javascript:void(0);">Home</a></li>
+                                        <li class="menu-item-has-children">
+                                            <a href="javascript:void(0);">Explore</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="listingvlist.html">All Listings</a></li>
+                                                <li class="menu-item-has-children">
+                                                    <a href="javascript:void(0);">Food</a>
+                                                    <ul class="sub-menu">
+                                                        <li><a href="listingv1.html">Cafe</a></li>
+                                                        <li class="current-menu-item"><a href="listingv2.html">Restaurant</a></li>
+                                                        <li><a href="listingv1.html">Dinner</a></li>
+                                                        <li><a href="listingv2.html">Pizza Place</a></li>
+                                                        <li><a href="listingv1.html">Italian</a></li>
+                                                        <li><a href="listingv2.html">Bakeries</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item-has-children">
+                                                    <a href="javascript:void(0);">Entertainment</a>
+                                                    <ul class="sub-menu">
+                                                        <li><a href="listingv1.html">Art &amp; Design</a></li>
+                                                        <li><a href="listingv2.html">Movie Theater</a></li>
+                                                        <li><a href="listingv1.html">Theme Parks</a></li>
+                                                        <li><a href="listingv2.html">Music Life</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item-has-children">
+                                                    <a href="javascript:void(0);">Educational</a>
+                                                    <ul class="sub-menu">
+                                                        <li><a href="listingv1.html">School</a></li>
+                                                        <li><a href="listingv2.html">College</a></li>
+                                                        <li><a href="listingv1.html">University</a></li>
+                                                        <li><a href="listingv2.html">Short Courses</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item-has-children">
+                                                    <a href="javascript:void(0);">Nightlife</a>
+                                                    <ul class="sub-menu">
+                                                        <li><a href="listingv1.html">Wine Bars</a></li>
+                                                        <li><a href="listingv2.html">Pubs</a></li>
+                                                        <li><a href="listingv1.html">Nightclub</a></li>
+                                                        <li><a href="listingv2.html">Lounge</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item-has-children">
+                                                    <a href="javascript:void(0);">Outdoors</a>
+                                                    <ul class="sub-menu">
+                                                        <li><a href="listingv1.html">Boutiques</a></li>
+                                                        <li><a href="listingv2.html">Fashion</a></li>
+                                                        <li><a href="listingv1.html">Furniture</a></li>
+                                                        <li><a href="listingv2.html">Sport Equipment</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="javascript:void(0);">Pages</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="howitwork.html">How It Works</a></li>
+                                                <li><a href="services.html">Services</a></li>
+                                                <li><a href="pkgprice.html">Packages</a></li>
+                                                <li><a href="testimonials.html">Testimonials</a></li>
+                                                <li><a href="contactus.html">Contact Us</a></li>
+                                                <li><a href="404error.html">404 Error</a></li>
+                                                <li><a href="comingsoon.html">Coming Sooon</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="javascript:void(0);">News</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="newsv1.html">Blog Standard</a></li>
+                                                <li><a href="newsv2.html">Blog Classic</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="current-menu-item"><a href="dashboard.html">Aceuille Admin</a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </nav>
+                <!--    <nav class="listar-addnav">
                         <ul>
                             <li>
 
@@ -88,6 +322,8 @@
                             </li>
 
                             <li>
+
+
                                 <a id="listar-btnsignin" class="btn btn-warning"
                                    href="{{ path('fos_user_profile_edit') }}">
                                     <i class="icon-smiling-face-eyebrows2"></i>
@@ -95,25 +331,10 @@
                                 </a>
                             </li>
 
-
-
-
-                            {% else %}
-
-
-
-
-
-
-
-                                <li>
-                                    <a id="listar-btnsignin" class="listar-btn listar-btnblue" href="{{ path('fos_user_security_login') }}">
-                                        <i class="icon-smiling-face"></i>
-                                        <span>{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</span>
-                                    </a>
-                                </li>
                             {% endif %}
 
+                        </ul>
+                    </nav>-->
 
 
 
@@ -121,100 +342,12 @@
 
 
 
-                    </nav>
-                    <nav id="listar-nav" class="listar-nav">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#listar-navigation" aria-expanded="false">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
-
-
-                        <div id="listar-navigation" class="collapse navbar-collapse listar-navigation">
-                            <ul>
-                                <li><a href="javascript:void(0);">Home</a></li>
-                                <li class="menu-item-has-children">
-                                    <a href="javascript:void(0);">Explore</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="listingvlist.html">All Listings</a></li>
-                                        <li class="menu-item-has-children">
-                                            <a href="javascript:void(0);">Food</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="listingv1.html">Cafe</a></li>
-                                                <li class="current-menu-item"><a href="listingv2.html">Restaurant</a></li>
-                                                <li><a href="listingv1.html">Dinner</a></li>
-                                                <li><a href="listingv2.html">Pizza Place</a></li>
-                                                <li><a href="listingv1.html">Italian</a></li>
-                                                <li><a href="listingv2.html">Bakeries</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item-has-children">
-                                            <a href="javascript:void(0);">Entertainment</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="listingv1.html">Art &amp; Design</a></li>
-                                                <li><a href="listingv2.html">Movie Theater</a></li>
-                                                <li><a href="listingv1.html">Theme Parks</a></li>
-                                                <li><a href="listingv2.html">Music Life</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item-has-children">
-                                            <a href="javascript:void(0);">Educational</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="listingv1.html">School</a></li>
-                                                <li><a href="listingv2.html">College</a></li>
-                                                <li><a href="listingv1.html">University</a></li>
-                                                <li><a href="listingv2.html">Short Courses</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item-has-children">
-                                            <a href="javascript:void(0);">Nightlife</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="listingv1.html">Wine Bars</a></li>
-                                                <li><a href="listingv2.html">Pubs</a></li>
-                                                <li><a href="listingv1.html">Nightclub</a></li>
-                                                <li><a href="listingv2.html">Lounge</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item-has-children">
-                                            <a href="javascript:void(0);">Outdoors</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="listingv1.html">Boutiques</a></li>
-                                                <li><a href="listingv2.html">Fashion</a></li>
-                                                <li><a href="listingv1.html">Furniture</a></li>
-                                                <li><a href="listingv2.html">Sport Equipment</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a href="javascript:void(0);">Pages</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="howitwork.html">How It Works</a></li>
-                                        <li><a href="services.html">Services</a></li>
-                                        <li><a href="pkgprice.html">Packages</a></li>
-                                        <li><a href="testimonials.html">Testimonials</a></li>
-                                        <li><a href="contactus.html">Contact Us</a></li>
-                                        <li><a href="404error.html">404 Error</a></li>
-                                        <li><a href="comingsoon.html">Coming Sooon</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a href="javascript:void(0);">News</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="newsv1.html">Blog Standard</a></li>
-                                        <li><a href="newsv2.html">Blog Classic</a></li>
-                                    </ul>
-                                </li>
-                                <li class="current-menu-item"><a href="dashboard.html">Dasboard1</a></li>
-                            </ul>
-                        </div>
-                    </nav>
                 </div>
             </div>
         </div>
+
+
+
         <div id="listar-sidebarwrapper" class="listar-sidebarwrapper">
             <strong class="listar-logo"><a href="index-2.html"><img src="{{ asset('UserBundle/images/logo.png') }}" alt="company logo here"></a></strong>
             <span id="listar-btnmenutoggle" class="listar-btnmenutoggle"><i class="fa fa-angle-left"></i></span>
@@ -231,33 +364,41 @@
                         <li>
                             <a href="dashboardlisting.html">
                                 <i class="icon-profile-male"></i>
-                                <span>users List</span>
+                                <span>Support Clientélle</span>
                             </a>
                         </li>
                         <li>
                             <a href="dashboardlisting.html">
                                 <i class="icon-layers"></i>
-                                <span>My Listings</span>
+                                <span>Gestion des Bons Plan </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="dashboardlisting.html">
+                                <i class="icon-layers"></i>
+                                <span>Gestion des Partenaire </span>
                             </a>
                         </li>
                         <li>
                             <a href="dashboardreviews.html">
                                 <i class="icon-star4"></i>
-                                <span>Reviews</span>
+                                <span>Gestion des Mises</span>
                             </a>
                         </li>
                         <li>
                             <a href="dashboardwishlist.html">
                                 <i class="icon-heart3"></i>
-                                <span>Wishlist</span>
+                                <span>Gestion du Forum</span>
                             </a>
                         </li>
                         <li>
-                            <a href="dashboardaddlisting.html">
-                                <i class="icon-pencil3"></i>
-                                <span>Add Listing</span>
+                            <a href="dashboardwishlist.html">
+                                <i class="icon-heart3"></i>
+                                <span>Gestion des deals</span>
                             </a>
                         </li>
+
+
                     </ul>
                     <div class="listar-menutitle listar-menutitleaccount"><span>Account</span></div>
                     <ul>
@@ -388,6 +529,13 @@
 <script src="{{ asset('UserBundle/js/appear.js') }}"></script>
 <script src="{{ asset('UserBundle/js/gmap3.js') }}"></script>
 <script src="{{ asset('UserBundle/js/dev_themefunction.js') }}"></script>
+
+
+
+
+
+
+
 </body>
 
 <!-- Mirrored from wahabali.com/work/listingstars/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 02 Feb 2018 10:16:44 GMT -->

@@ -44,9 +44,16 @@ public function dashboardAdminAction()
 }
 
 
+    public function compteUserAction()
+    {
+        return $this->render('');
+    }
 
 
 
-
+    public function messageUserAction()
+    {
+        return $this->render('');
+    }
 
 }
